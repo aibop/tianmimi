@@ -1,0 +1,189 @@
+{% load staticfiles %}
+{% load i18n %}
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{% block title %}首页{% endblock %}</title>
+    <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet" type="text/css" media="all" />
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="{% static 'js/jquery.min.js' %}"></script>
+    <!-- Custom Theme files -->
+    <!--theme-style-->
+    <link href="{% static 'css/style.css' %}" rel="stylesheet" type="text/css" media="all" />
+    <link rel="stylesheet" href="{% static 'css/chocolat.css' %}" type="text/css">
+
+    <!--//theme-style-->
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta property="og:title" content="Vide" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+    <!---->
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <!---->
+    <!--<link href='//fonts.googleapis.com/css?family=Questrial' rel='stylesheet' type='text/css'>-->
+    <!--<link href='//fonts.googleapis.com/css?family=Open+Sans:400,800italic,800,700italic,700,600italic,600,400italic,300italic,300' rel='stylesheet' type='text/css'>-->
+    <script src="{% static 'js/jquery.chocolat.js' %}"></script>
+    <!--lightboxfiles-->
+    <script type="text/javascript">
+        $(function() {
+            $('.gallery a').Chocolat();
+        });
+    </script>
+    <!--script-->
+    <!--startsmothscrolling-->
+    <script type="text/javascript" src="{% static 'js/move-top.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/easing.js' %}"></script>
+    <script type="text/javascript">
+        jQuery(document).ready(function($) {
+            $(".scroll").click(function(event){
+                event.preventDefault();
+                $('html,body').animate({scrollTop:$(this.hash).offset().top},1200);
+            });
+        });
+    </script>
+
+    <script src="{% static 'js/modernizr.custom.97074.js' %}"></script>
+
+    {% block head %}
+    {% endblock %}
+</head>
+<body>
+{% csrf_token %}
+<div class="banner-section">
+    <div class="container">
+        <div class="banner-heder">
+            <h3>We Plan Your Trip<span>Best Available Choice in Town</span></h3>
+        </div>
+        <div class="banner-grids">
+            <div class="col-md-2 banner-grid">
+                <select class="sel">
+                    <option value="">Location</option>
+                    <option value="">Czech Republic</option>
+                    <option value="">France</option>
+                    <option value="">germany</option>
+                    <option value="">Italy</option>
+                </select>
+            </div>
+            <div class="col-md-2 banner-grid">
+                <select class="sel">
+                    <option value="">Hotel</option>
+                    <option value="">Hilton</option>
+                    <option value="">Orange county</option>
+                    <option value="">Sheraton</option>
+                </select>
+            </div>
+            <div class="col-md-2 banner-grid">
+                <select class="sel">
+                    <option value="">Type</option>
+                    <option value="">Group</option>
+                    <option value="">Trip</option>
+                </select>
+            </div>
+            <div class="col-md-2 banner-grid">
+                <select class="sel">
+                    <option value="">Select price</option>
+                    <option value="">$100 </option>
+                    <option value="">$500</option>
+                    <option value="">$700</option>
+                    <option value="">$4500</option>
+                </select>
+            </div>
+            <div class="col-md-4 search">
+                <form action="#" method="post">
+                    <input type="submit" value="Check Availability">
+                </form>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+</div>
+<div class="header">
+    <div class="container">
+        <div class="header-menu">
+            <nav class="navbar navbar-default">
+                <div class="container-fluid">
+                    <!-- Brand and toggle get grouped for better mobile display -->
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <div class="navbar-brand logo">
+                            <h1><a href="index.html"><span>Trip</span> Guide</a></h1>
+                        </div>
+                    </div>
+                    <!-- Collect the nav links, forms, and other content for toggling -->
+                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                        <ul class="nav navbar-nav cl-effect-11">
+                            <li class="active"><a href="#" data-hover="Home" class="scroll">Home </a></li>
+                            <li><a href="#about" data-hover="About" class="scroll">About</a></li>
+                            <li><a href="#services" data-hover="Services" class="scroll">Services</a></li>
+                            <li><a href="#tours" data-hover="Tours" class="scroll">Tours</a></li>
+                            <li><a data-hover="News" href="#news" class="scroll">News</a></li>
+                            <li><a  href="#guides" data-hover="Guides" class="scroll">Guides</a></li>
+                            <li><a data-hover="Contact" href="#contact" class="scroll">Contact</a></li>
+
+                        </ul>
+                    </div><!-- /.navbar-collapse -->
+                </div><!-- /.container-fluid -->
+            </nav>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+</div>
+{% block content %}
+{% block slideshow%}{% endblock%}
+{% block contact %}{% endblock %}
+
+<!--footer-->
+<div class="copy-section">
+    <div class="container">
+        <div class="footer-top">
+            <p>&copy; 2016 Trip Guide. All rights reserved | Design by <a href="http://w3layouts.com">W3layouts</a></p>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+<script type="text/javascript">
+    $(document).ready(function() {
+        /*
+         var defaults = {
+         containerID: 'home', // fading element id
+         containerHoverID: 'toTopHover', // fading element hover id
+         scrollSpeed: 1200,
+         easingType: 'linear' 
+         };
+         */
+
+        $().UItoTop({ easingType: 'easeOutQuart' });
+
+    });
+</script>
+<a href="#" id="home" style="display: block;"> <span id="toTopHover" style="opacity: 1;"> </span></a>
+<div class="modal fade" id="myModal1" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content modal-info">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            </div>
+            <div class="modal-body">
+                <div class="news-gr">
+                    <img src="images/p6.jpg" class="img-responsive" />
+                    <h3 class="tittle1">Trip Guide</h3>
+                    <p>Nam aliquam pretium feugiat. Duis sem est, viverra eu interdum ac, suscipit nec mauris. Suspendisse commodo tempor sagittis! In justo est, sollicitudin eu scelerisque pretium, placerat eget elit. Praesent faucibus rutrum odio at rhoncus. Pel ermentum pretium. Maecenas ac lacus ut neque rhoncus laoreet sed id tellus. Donec justo tellus.</p>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
+
