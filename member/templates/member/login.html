@@ -50,5 +50,23 @@
   </div>
 </div>
 </body>
-
+<script>
+	$(function(){
+		$('#exampleModal').modal('show');
+	})
+	var app=angular.module('app',[]);
+	app.controller('ctrl',function($scope){
+		//$scope.uname='';
+		//$scope.pwd="";
+		$scope.errormag="";
+		$scope.login=function(){
+				console.log($scope.pwd);
+				if($scope.uname=='admin' && $scope.pwd=="123456"){
+						$('#exampleModal').modal('hide');
+						alert('验证通过！即将跳转到百度。。。');
+						window.location.href="http://www.baidu.com"
+			}else{$scope.errormag='用户名或密码错误！！'}
+		}
+	})
+</script>
 </html>

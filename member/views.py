@@ -27,7 +27,7 @@ def login(request):
         
     else:
         form = LoginactionForm()
-        return render_to_response('member/login.html',RequestContext(request,{'form':form})) 
+        return render(request,'member/login.html',{'form':form}) 
         
     
 def register(request):

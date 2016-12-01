@@ -119,6 +119,10 @@ class LoginactionForm(forms.ModelForm):
         )   
     ) 
     
+    class Meta:
+        model = Member
+        fields = ['username','password']     
+    
     password = forms.CharField(
         required=True,
         label=u"密码",
@@ -127,7 +131,7 @@ class LoginactionForm(forms.ModelForm):
             attrs={
                 'placeholder':u"密码",
             }   
-            ),  
+        ),  
     )
     
     def clean(self):
