@@ -1,12 +1,17 @@
 #-*- coding: UTF-8 -*-
 from django.shortcuts import render
-from forms import MemberInfoForm
-from models import Member
+from .forms import MemberInfoForm
+from .models import Member
 from django.core.paginator import Paginator,InvalidPage,EmptyPage,PageNotAnInteger
 from django.http import HttpResponse
 from django.contrib import messages
+#from django.contrib.auth.handlers import make_password, check_password
+
 
 # Create your views here.
+def login(request):
+    pass
+    
 def register(request):
     if request.method == 'POST':
         form = MemberInfoForm(request.POST,request.FILES)
@@ -14,16 +19,24 @@ def register(request):
             return render(request,'member/register.html',{'form':form})
         else:
             username = form.cleaned_data.get('username')
-            password = form.cleaned_data.get('password')
+            password1 = form.cleaned_data.get('password1')
+            password2 = form.cleaned_data.get('password2')
+            
+            password = form.clean_password2()
+            
             age = form.cleaned_data.get('age')
             sex = form.cleaned_data.get('sex')
             email = form.cleaned_data.get('email')
-            portrait = request.FILES['image']
+            phone = form.cleaned_data.get('phone')
+            #portrait = request.FILES['image']
             login_ip = get_client_ip(request)
-            member = Member(moviename=moviename,movieaddress=movieaddress,downloadlink=downloadlink,
-                          style=style,language=language,image=image,original=str(user.webuser.id))
-            movie.save()
+            member = Member(username=username,password=password,age=age,phone=phone,
+                          sex=sex,email=email,login_ip=login_ip)
+            member.save()
             messages.add_message(request,messages.SUCCESS,u'注册成功.')  
+    else:
+        form = MemberInfoForm();
+    return render(request,'member/register.html',{'form':form})
             
 def get_client_ip(request):
     x_forwarded_for = request.META.get('HTTP_X_FORWARDED_FOR')

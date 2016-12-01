@@ -22,4 +22,5 @@ from django.conf import settings
 urlpatterns = [
     url(r'^$', index_views.index),
     url(r'^admin/', admin.site.urls),
+    url(r'^member/', include('member.urls'))
 ] + static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)

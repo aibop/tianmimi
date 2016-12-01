@@ -110,6 +110,19 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+PASSWORD_HASHERS = [
+    'django.contrib.auth.hashers.PBKDF2PasswordHasher',
+    'django.contrib.auth.hashers.PBKDF2SHA1PasswordHasher',
+    'django.contrib.auth.hashers.Argon2PasswordHasher',
+    'django.contrib.auth.hashers.BCryptSHA256PasswordHasher',
+    'django.contrib.auth.hashers.BCryptPasswordHasher',
+    'django.contrib.auth.hashers.SHA1PasswordHasher',
+    'django.contrib.auth.hashers.MD5PasswordHasher',
+    'django.contrib.auth.hashers.UnsaltedSHA1PasswordHasher',
+    'django.contrib.auth.hashers.UnsaltedMD5PasswordHasher',
+    'django.contrib.auth.hashers.CryptPasswordHasher',
+]
+
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.10/topics/i18n/
@@ -124,6 +137,9 @@ USE_I18N = True
 USE_L10N = True
 
 USE_TZ = True
+
+FILE_CHARSET='gb18030' 
+DEFAULT_CHARSET='utf-8'
 
 
 # Static files (CSS, JavaScript, Images)
@@ -141,3 +157,4 @@ STATICFILES_DIRS = (
 
 # Markdown
 MARKDOWN_EDITOR_SKIN = 'simple'
+AUTH_USER_MODEL = 'member.Member'
