@@ -1,17 +1,34 @@
 #-*- coding: UTF-8 -*-
-from django.shortcuts import render
-from .forms import MemberInfoForm
+from django.shortcuts import render,redirect,render_to_response
+from .forms import MemberInfoForm,LoginactionForm,RegistrationForm
 from .models import Member
 from django.core.paginator import Paginator,InvalidPage,EmptyPage,PageNotAnInteger
 from django.http import HttpResponse
 from django.contrib import messages
-
-from .forms import RegistrationForm
+from django.template.context import RequestContext
 
 
 # Create your views here.
 def login(request):
-    pass
+    if request.method == 'POST':
+        form = LoginactionForm()
+        if not form.is_valid():
+            #return render_to_response(request,'member/login.html',{'form':form})
+            return render_to_response('member/login.html',RequestContext(request,{'form':form})) 
+        else:
+            username = request.POST.get('username','')
+            password = request.POST.get('password','')
+            user = auth.authenticate(username=username,password=password)
+            if user is not None and user.is_active:
+                auth.login(request,user)
+                return redirect('index')
+            else:
+                return render_to_response('member/login.html',RequestContext(request,{'form':form,'password_is_wrong':True}))            
+        
+    else:
+        form = LoginactionForm()
+        return render_to_response('member/login.html',RequestContext(request,{'form':form})) 
+        
     
 def register(request):
     if request.method == 'POST':
