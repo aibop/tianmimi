@@ -76,7 +76,7 @@ class MemberAdmin(BaseUserAdmin):
     list_filter = ('is_admin',)
     readonly_fields = ('register_time', 'last_login_time')
     fieldsets = (
-        (None, {'fields': ('username', 'email', 'password', 'portrait')}),
+        (None, {'fields': ('username', 'email', 'password', 'age', 'sex', 'portrait')}),
         ('Personal info', {'fields': ('register_time', 'last_login_time',)}),
         (
             'Open token info',

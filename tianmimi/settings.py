@@ -158,3 +158,4 @@ STATICFILES_DIRS = (
 # Markdown
 MARKDOWN_EDITOR_SKIN = 'simple'
 AUTH_USER_MODEL = 'member.Member'
+USERS_VERIFY_EMAIL = True
