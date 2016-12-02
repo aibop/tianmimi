@@ -62,7 +62,7 @@ def register(request):
         form = RegistrationForm();
     return render(request,'member/register.html',{'form':form})
 
-def index(request):
+def center(request):
     return render(request,'member/index.html') 
             
 def get_client_ip(request):

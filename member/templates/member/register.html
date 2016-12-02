@@ -3,70 +3,71 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-<title>×¢²áÕËºÅ</title>
-<script src="{% static 'js/jquery.min.js' %}"></script>
-<script src="{% static 'js/bootstrap.min.js' %}"></script>
-<script src="{% static 'js/angular.js' %}"></script>
-<link href="{% static 'css/bootstrap.css' %}" rel="stylesheet">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>æ³¨å†Œè´¦å·</title>
+    <script src="{% static 'js/jquery.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'js/angular.js' %}"></script>
+    <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet">
 </head>
 <body ng-app="app"  ng-controller="ctrl">
-    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" data-backdrop='static'>
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-	<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">¡Á</span></button>
-	<h4 class="modal-title" id="exampleModalLabel">×¢²áÕËºÅ</h4>
-      </div>
-      <form role="form" enctype="multipart/form-data" class="MovieInfoForm " action="{% url 'register' %}" method="post" role="form">
-      {% csrf_token %}
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" data-backdrop='static'>
+    <div class="modal-dialog" role="document">
+	<div class="modal-content">
+	    <div class="modal-header">
+		<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">Ã—</span></button>
+		<h4 class="modal-title" id="exampleModalLabel">æ³¨å†Œè´¦å·</h4>
+	    </div>
+	    <form role="form" enctype="multipart/form-data" class="MovieInfoForm " action="{% url 'register' %}" method="post" role="form">
+		{% csrf_token %}
 
-      
 
-      <div class="modal-body">
-      {% for field in form.visible_fields %}
-	<div class="form-group{% if field.errors %} has-error{% endif %}">
-	  <label for="{{ field.label }}">{{ field.label }}</label>
-	  {{ field }}
-	  {% if field.help_text %}
-	    <span class="help-block">{{ field.help_text|safe }}</span>
-	  {% endif %}
-	  {% for error in field.errors %}
-	    <label class="control-label">{{ error }}</label>
-	  {% endfor %}
+
+		<div class="modal-body">
+		    {% for field in form.visible_fields %}
+		    <div class="form-group{% if field.errors %} has-error{% endif %}">
+			<label for="{{ field.label }}">{{ field.label }}</label>
+			{{ field }}
+			{% if field.help_text %}
+			<span class="help-block">{{ field.help_text|safe }}</span>
+			{% endif %}
+			{% for error in field.errors %}
+			<label class="control-label">{{ error }}</label>
+			{% endfor %}
+		    </div>
+		    {% endfor %}
+
+		</div>
+		<div class="modal-footer">
+		    <input type="submit" class="btn btn-primary" value="æ³¨å†Œ">
+
+		</div>
+	    </form>
+	    <div  class="alert" ng-show="errormag.length>0">{{errormag}}</div>
+
 	</div>
-      {% endfor %}      
-
-      </div>
-      <div class="modal-footer">
-	<input type="submit" class="btn btn-primary" value="×¢²á">
-
-      </div>
-      </form>
-      <div  class="alert" ng-show="errormag.length>0">{{errormag}}</div>
-      
     </div>
-  </div>
 </div>
 </body>
 <script>
-	$(function(){
-		$('#exampleModal').modal('show');
-	})
-	var app=angular.module('app',[]);
-	app.controller('ctrl',function($scope){
-		//$scope.uname='';
-		//$scope.pwd="";
-		$scope.errormag="";
-		$scope.login=function(){
-				console.log($scope.pwd);
-				if($scope.uname=='admin' && $scope.pwd=="123456"){
-						$('#exampleModal').modal('hide');
-						alert('ÑéÖ¤Í¨¹ı£¡¼´½«Ìø×ªµ½°Ù¶È¡£¡£¡£');
-						window.location.href="http://www.baidu.com"
-			}else{$scope.errormag='ÓÃ»§Ãû»òÃÜÂë´íÎó£¡£¡'}
-		}
-	})
+    $(function(){
+	$('#exampleModal').modal('show');
+    })
+    var app=angular.module('app',[]);
+    app.controller('ctrl',function($scope){
+	//$scope.uname='';
+	//$scope.pwd="";
+	$scope.errormag="";
+	$scope.login=function(){
+	    console.log($scope.pwd);
+	    if($scope.uname=='admin' && $scope.pwd=="123456"){
+		$('#exampleModal').modal('hide');
+		alert('éªŒè¯é€šè¿‡ï¼å³å°†è·³è½¬åˆ°ç™¾åº¦ã€‚ã€‚ã€‚');
+		window.location.href="http://www.baidu.com"
+	    }else{$scope.errormag='ç”¨æˆ·åæˆ–å¯†ç é”™è¯¯ï¼ï¼'}
+	}
+    })
 </script>
 </html>

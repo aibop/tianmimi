@@ -5,7 +5,8 @@
 <head>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-<title>ÓÃ»§µÇÂ¼</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>ç”¨æˆ·ç™»å½•</title>
 <script src="{% static 'js/jquery.min.js' %}"></script>
 <script src="{% static 'js/bootstrap.min.js' %}"></script>
 <script src="{% static 'js/angular.js' %}"></script>
@@ -16,8 +17,8 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-	<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">¡Á</span></button>
-	<h4 class="modal-title" id="exampleModalLabel">ÓÃ»§µÇÂ¼</h4>
+	<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">Ã—</span></button>
+	<h4 class="modal-title" id="exampleModalLabel">ç”¨æˆ·ç™»å½•</h4>
       </div>
       <form role="form" enctype="multipart/form-data" class="MovieInfoForm " action="{% url 'register' %}" method="post" role="form">
       {% csrf_token %}
@@ -40,7 +41,7 @@
 
       </div>
       <div class="modal-footer">
-	<input type="submit" class="btn btn-primary" value="µÇÂ¼">
+	<input type="submit" class="btn btn-primary" value="ç™»å½•">
 
       </div>
       </form>
@@ -63,9 +64,9 @@
 				console.log($scope.pwd);
 				if($scope.uname=='admin' && $scope.pwd=="123456"){
 						$('#exampleModal').modal('hide');
-						alert('ÑéÖ¤Í¨¹ı£¡¼´½«Ìø×ªµ½°Ù¶È¡£¡£¡£');
+						alert('éªŒè¯é€šè¿‡ï¼å³å°†è·³è½¬åˆ°ç™¾åº¦ã€‚ã€‚ã€‚');
 						window.location.href="http://www.baidu.com"
-			}else{$scope.errormag='ÓÃ»§Ãû»òÃÜÂë´íÎó£¡£¡'}
+			}else{$scope.errormag='ç”¨æˆ·åæˆ–å¯†ç é”™è¯¯ï¼ï¼'}
 		}
 	})
 </script>
