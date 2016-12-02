@@ -61,6 +61,9 @@ def register(request):
     else:
         form = RegistrationForm();
     return render(request,'member/register.html',{'form':form})
+
+def index(request):
+    return render(request,'member/index.html') 
             
 def get_client_ip(request):
     x_forwarded_for = request.META.get('HTTP_X_FORWARDED_FOR')

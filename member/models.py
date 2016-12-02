@@ -62,8 +62,8 @@ class Member(AbstractBaseUser):
     REQUIRED_FIELDS = ('email',)
 
     class Meta:
-        verbose_name = 'Member'
-        verbose_name_plural = 'Member'
+        verbose_name = '会员'
+        verbose_name_plural = '会员列表'
         
     def get_full_name(self):
         # The user is identified by their username address
